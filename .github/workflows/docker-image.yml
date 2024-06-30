@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  DOTNET_VERSION: '8.x' # The .NET SDK version to use
+
 jobs:
 
   build:
@@ -17,6 +20,20 @@ jobs:
     - name: Set image tag
       id: tag
       run: echo "::set-output name=tag::$(date +%s)"
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: Install dependencies
+      run: dotnet restore
+      
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
     
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag itransfer:${{ steps.tag.outputs.tag }}
