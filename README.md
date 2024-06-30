@@ -154,6 +154,14 @@ O projeto de infraestrutura gerencia o acesso ao banco de dados e configuraçõe
 - **Banco de Dados**: O banco de dados usado é SQLServer para desenvolvimento local e pode ser substituído por um banco de dados relacional para produção. 
 - **Injeção de Dependência**: O projeto utiliza injeção de dependência para gerenciar dependências entre classes e módulos.
 - **Configurações**: Configurações específicas do ambiente são gerenciadas usando arquivos de configuração.
+
+## Architecture Decision Records
+
+As principais decisões arquiteturais podem ser consultas na pasta /Architecture Decision Record
+
+- **Título**: Utilização da Clean Architecture para API de Transferências Bancárias.
+- **Título**: Utilização do Entity Framework para Acesso ao Banco de Dados.
+- **Título**: Utilização do Design Pattern Saga e Gestão de Falhas com Polly para Operações Críticas.
   
 ## Instrução de instação
 Para instalar e executar o projeto, siga estas etapas:
