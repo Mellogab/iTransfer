@@ -1,5 +1,32 @@
 # iTransfer
-Este repositório inclui uma API de transferência bancária como parte de solução de um problema.
+Este repositório inclui uma API de transferência bancária como parte de solução de um problema, seguindo as premissas:
+
+Desenhar e desenvolver uma solução que permita que os clientes consigam realizar
+transferência entre contas. Essa solução precisa ser resiliente, ter alta disponibilidade e de fácil
+evolução/manutenção.
+
+![image](https://github.com/Mellogab/iTransfer/assets/7771245/ec1a07eb-25bb-4646-a2cf-363e1fee9f0b)
+
+### Desenvolva uma API REST com os seguintes requisitos:
+
+1. Ser desenvolvida em linguagem APS.NET C#/Core Web API;
+2. Validar se o cliente que vai receber a transferência existe passando o idCliente na API de
+Cadastro;
+3. Buscar dados da conta origem passando idConta na API de Contas;
+4. Validar se a conta corrente está ativa;
+5. Validar se o cliente tem saldo disponível na conta corrente para realizar a transferência;
+6. A API de contas retornará o limite diário do cliente, caso o valor seja zero ou menor do que o
+valor da transferência a ser realizada, a transferência não poderá ser realizada;
+7. Impedir que falhas momentâneas das dependências da aplicação impactem a experiência do
+cliente; 
+8. Documentação
+9. Implementação de padrões de resiliência na aplicação.
+10. Desenho de arquitetura.
+11. Testes unitários a automatizados
+12. Clean Code
+13. Tratamento de erros
+14. Proposta de melhoria na arquitetura
+15. Design Patterns
 
 ## Visão Geral
 
