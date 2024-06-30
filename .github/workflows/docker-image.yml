@@ -14,9 +14,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Set image tag
+      id: tag
+      run: echo "::set-output name=tag::$(date +%s)"
+    
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag itransfer:$(date +%s)
-      
+      run: docker build . --file Dockerfile --tag itransfer:${{ steps.tag.outputs.tag }}
+    
     - name: Run tests
       run: |
-        docker run --rm itransfer:$(date +%s) dotnet test
+        docker run --rm itransfer:${{ steps.tag.outputs.tag }} dotnet test
