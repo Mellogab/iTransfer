@@ -155,6 +155,8 @@ O projeto é dividido em quatro projetos internos:
 
 ## Proposta de Melhoria na arquitetura
 
+![image](https://github.com/Mellogab/iTransfer/assets/7771245/ab360529-c346-41eb-b2e3-e3b8424ebbe4)
+
 ## Casos de Uso
 
 Os casos de uso definem a lógica de negócios e são implementados no projeto Core. Aqui estão alguns exemplos:
