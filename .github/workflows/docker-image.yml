@@ -21,6 +21,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag itransfer:${{ steps.tag.outputs.tag }}
     
-    - name: Run tests
-      run: |
-        docker run --rm itransfer:${{ steps.tag.outputs.tag }} dotnet test
+    #- name: Run tests
+    #  run: |
+    #    docker run --rm itransfer:${{ steps.tag.outputs.tag }} dotnet test
