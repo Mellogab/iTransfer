@@ -332,3 +332,13 @@ iTransferencia/bin/Debug/net8.0/Azure.Core.dll
 iTransferencia/bin/Debug/net8.0/AutoMapper.dll
 iTransferencia/bin/Debug/net8.0/appsettings.json
 iTransferencia/bin/Debug/net8.0/appsettings.Development.json
+iTransferencia/obj/Debug/net8.0/ApiEndpoints.json
+.vs/iTransferencia/FileContentIndex/159334b1-ba37-42c5-9423-9671db1a988e.vsidx
+.vs/iTransferencia/FileContentIndex/2459ce71-7197-4f97-b81e-95bcb9512107.vsidx
+.vs/iTransferencia/FileContentIndex/e32f516c-396f-4436-ad83-20105262fd1e.vsidx
+iTransferencia.Core/obj/Debug/net8.0/iTransferencia.Core.csproj.BuildWithSkipAnalyzers
+iTransferencia.Infrastructure/obj/Debug/net8.0/iTransferencia.Infrastructure.csproj.BuildWithSkipAnalyzers
+iTransferencia/Dockerfile
+iTransferencia/logs/log20240630.txt
+iTransferencia/obj/Debug/net8.0/iTransferencia.csproj.BuildWithSkipAnalyzers
+.vs/iTransferencia/config/applicationhost.config
