@@ -24,22 +24,26 @@ FROM build AS publish
 RUN dotnet publish "iTransferencia.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 # Estágio final para configurar SQL Server e banco de dados
-FROM base AS final
+FROM mcr.microsoft.com/mssql/server:2019-latest AS sqlserver
 WORKDIR /app
 
 # Copia o script SQL para dentro do contêiner
-COPY ["Database/TransferDatabase.InitialScripts.sql", "TransferDatabase.InitialScripts.sql"]
-COPY ./Database/TransferDatabase.InitialScripts.sql /app/TransferDatabase.InitialScripts.sql
-
-# Estágio final para configurar SQL Server e banco de dados
-FROM mcr.microsoft.com/mssql/server:2019-latest
+#COPY ["Database/TransferDatabase.InitialScripts.sql", "TransferDatabase.InitialScripts.sql"]
+#COPY ./Database/TransferDatabase.InitialScripts.sql /app/TransferDatabase.InitialScripts.sql
+#COPY Database/TransferDatabase.InitialScripts.sql /docker-entrypoint-initdb.d/
+#COPY ["Database/TransferDatabase.InitialScripts.sql", "/docker-entrypoint-initdb.d/TransferDatabase.InitialScripts.sql"]
 
 # Variáveis de ambiente para configurar SQL Server
-ENV ACCEPT_EULA=Y
-ENV SA_PASSWORD=YourStrongPassword
+#ENV ACCEPT_EULA=Y
+#ENV SA_PASSWORD=adm123
 
 # Executa o script SQL para criar o banco e as tabelas
-RUN /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P $SA_PASSWORD -i /app/TransferDatabase.InitialScripts.sql
+#RUN /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P $SA_PASSWORD -i /docker-entrypoint-initdb.d/TransferDatabase.InitialScripts.sql
+
+# Estágio final para configurar a aplicação
+FROM base AS final
+WORKDIR /app
 
 COPY --from=publish /app/publish .
+#COPY --from=sqlserver /docker-entrypoint-initdb.d/TransferDatabase.InitialScripts.sql /docker-entrypoint-initdb.d/
 ENTRYPOINT ["dotnet", "iTransferencia.dll"]
