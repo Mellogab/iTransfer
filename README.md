@@ -149,6 +149,12 @@ O projeto é dividido em quatro projetos internos:
   README.md
 ```
 
+## Arquitetura Inicial Sugerida
+
+![image](https://github.com/Mellogab/iTransfer/assets/7771245/5faa5bf0-14e5-453e-8a7f-30878a4eed4f)
+
+## Proposta de Melhoria na arquitetura
+
 ## Casos de Uso
 
 Os casos de uso definem a lógica de negócios e são implementados no projeto Core. Aqui estão alguns exemplos:
