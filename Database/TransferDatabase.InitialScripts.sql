@@ -1,3 +1,5 @@
+CREATE Database Transfer;
+
 -- Usar o Banco de Dados 'Transfer'
 USE Transfer;
 GO
@@ -11,7 +13,7 @@ CREATE TABLE Idempotence (
 );
 GO
 
--- Criar Índice na Coluna idempotenceHash
+-- Criar ï¿½ndice na Coluna idempotenceHash
 CREATE INDEX idx_Idempotence_idempotenceHash
 ON Idempotence (idempotenceHash);
 GO
@@ -25,14 +27,14 @@ CREATE TABLE TransferStatuses (
 -- Inserir dados na tabela TransferStatuses
 INSERT INTO TransferStatuses (id, name) VALUES
 (1, 'Em processamento'),
-(2, 'Falha na transferência'),
-(3, 'Falha na atualização de saldo da conta origem'),
-(4, 'Falha na atualização de saldo da conta destino'),
-(5, 'Falha na notificação para o bacen'),
-(6, 'Transferência enviada com sucesso'),
+(2, 'Falha na transferï¿½ncia'),
+(3, 'Falha na atualizaï¿½ï¿½o de saldo da conta origem'),
+(4, 'Falha na atualizaï¿½ï¿½o de saldo da conta destino'),
+(5, 'Falha na notificaï¿½ï¿½o para o bacen'),
+(6, 'Transferï¿½ncia enviada com sucesso'),
 (7, 'Saldo das contas atualizados'),
-(8, 'Falha ao atualizar saldo das contas bancárias'),
-(9, 'Erro desconhecido ao processar solicitação');
+(8, 'Falha ao atualizar saldo das contas bancï¿½rias'),
+(9, 'Erro desconhecido ao processar solicitaï¿½ï¿½o');
 GO
 
 -- Criar Tabela 'Transfers'
