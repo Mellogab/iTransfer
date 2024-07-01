@@ -27,14 +27,14 @@ CREATE TABLE TransferStatuses (
 -- Inserir dados na tabela TransferStatuses
 INSERT INTO TransferStatuses (id, name) VALUES
 (1, 'Em processamento'),
-(2, 'Falha na transfer�ncia'),
-(3, 'Falha na atualiza��o de saldo da conta origem'),
-(4, 'Falha na atualiza��o de saldo da conta destino'),
-(5, 'Falha na notifica��o para o bacen'),
-(6, 'Transfer�ncia enviada com sucesso'),
+(2, 'Falha na transferência'),
+(3, 'Falha na atualização de saldo da conta origem'),
+(4, 'Falha na atualização de saldo da conta destino'),
+(5, 'Falha na notificação para o bacen'),
+(6, 'Transferência enviada com sucesso'),
 (7, 'Saldo das contas atualizados'),
-(8, 'Falha ao atualizar saldo das contas banc�rias'),
-(9, 'Erro desconhecido ao processar solicita��o');
+(8, 'Falha ao atualizar saldo das contas bancárias'),
+(9, 'Erro desconhecido ao processar solicitação');
 GO
 
 -- Criar Tabela 'Transfers'
