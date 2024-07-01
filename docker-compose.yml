@@ -1,0 +1,23 @@
+version: '3'
+services:
+  mssql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "adm#2024"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - C:\dados\volumes\sqlserver:/var/opt/mssql/data
+      - .\Database\TransferDatabase.InitialScripts.sql:/docker-entrypoint-initdb.d/TransferDatabase.InitialScripts.sql
+  itransfer-app:
+    build: .
+    environment:
+      DbServer: "mssql-server"
+      DbPort: "1433"
+      DbUser: "SA"
+      Password: "adm#2024"
+      Database: "Transfer"
+    ports: 
+      - "8090:80"

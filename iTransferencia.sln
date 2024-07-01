@@ -5,11 +5,16 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTransferencia", "iTransferencia\iTransferencia.csproj", "{2A589ED3-4543-42CD-AFE0-1418AF4C61D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTransferencia.Core", "iTransferencia.Core\iTransferencia.Core.csproj", "{80B6408A-A84D-4E87-8841-82DD48B0B2CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTransferencia.Core", "iTransferencia.Core\iTransferencia.Core.csproj", "{80B6408A-A84D-4E87-8841-82DD48B0B2CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTransferencia.Infrastructure", "iTransferencia.Infrastructure\iTransferencia.Infrastructure.csproj", "{A8B86E21-EB04-4E99-9B04-2CCC7499CC87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTransferencia.Infrastructure", "iTransferencia.Infrastructure\iTransferencia.Infrastructure.csproj", "{A8B86E21-EB04-4E99-9B04-2CCC7499CC87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTransferencia.UnitTests", "iTransferencia.UnitTests\iTransferencia.UnitTests.csproj", "{31435876-3DC4-4508-AAF4-6AD5C5B0FA26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTransferencia.UnitTests", "iTransferencia.UnitTests\iTransferencia.UnitTests.csproj", "{31435876-3DC4-4508-AAF4-6AD5C5B0FA26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{30CE711E-AE61-42D9-B8B2-F63E01AE79D5}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
