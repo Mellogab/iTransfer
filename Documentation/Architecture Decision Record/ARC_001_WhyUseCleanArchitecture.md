@@ -1,23 +1,23 @@
-# Título: Utilização da Clean Architecture para API de Transferências Bancárias
+# Title: Using Clean Architecture for Bank Transfer API
 
-## Contexto
-Nosso projeto visa desenvolver uma API para realizar transferências bancárias entre contas de clientes. Esta API é crítica para o negócio, pois precisa garantir a integridade das transações financeiras, segurança dos dados dos clientes e alta disponibilidade.
+## Context
+Our project aims to develop an API to make bank transfers between customer accounts. This API is critical for the business, as it needs to guarantee the integrity of financial transactions, security of customer data and high availability.
 
-## Decisão
-Optamos por implementar a Clean Architecture para este projeto devido às seguintes considerações:
+## Decision
+We chose to implement Clean Architecture for this project due to the following considerations:
 
-- **Separação de Responsabilidades:** A Clean Architecture promove uma clara separação de responsabilidades entre os diferentes componentes do sistema (entidades, casos de uso, adaptadores externos), o que nos permite focar na lógica de negócio sem se preocupar com detalhes de infraestrutura.
+- **Separation of Responsibilities:** Clean Architecture promotes a clear separation of responsibilities between the different components of the system (entities, use cases, external adapters), which allows us to focus on business logic without worrying about details of infrastructure.
 
-- **Testabilidade Melhorada:** A estrutura da Clean Architecture facilita a escrita de testes automatizados, pois os casos de uso e regras de negócio são independentes de frameworks e bibliotecas externas. Isso nos permite realizar testes unitários eficazes para garantir a qualidade do código.
+- **Improved Testability:** The Clean Architecture framework makes it easier to write automated tests, as use cases and business rules are independent of external frameworks and libraries. This allows us to perform effective unit testing to ensure code quality.
 
-- **Flexibilidade e Evolução:** A arquitetura em camadas da Clean Architecture facilita a evolução do sistema ao longo do tempo. Podemos alterar implementações específicas (por exemplo, adaptadores de banco de dados ou frameworks de UI) sem afetar a lógica central do negócio.
+- **Flexibility and Evolution:** Clean Architecture's layered architecture facilitates system evolution over time. We can change specific implementations (for example, database adapters or UI frameworks) without affecting the core business logic.
 
-- **Segurança e Conformidade:** A separação clara entre os componentes da Clean Architecture nos ajuda a implementar camadas de segurança em diferentes níveis (por exemplo, validação de entradae etc) de maneira eficiente e consistente.
+- **Security and Compliance:** The clear separation between Clean Architecture components helps us implement security layers at different levels (e.g. input validation, etc.) in an efficient and consistent manner.
 
-## Consequências
-Ao adotar a Clean Architecture para nossa API de transferências bancárias, esperamos uma maior manutenibilidade, escalabilidade e confiabilidade do sistema. No entanto, isso implica em um maior esforço inicial na definição da arquitetura e na educação da equipe sobre os princípios e padrões da Clean Architecture.
+## Consequences
+By adopting Clean Architecture for our bank transfer API, we expect greater maintainability, scalability and reliability of the system. However, this implies a greater initial effort in defining the architecture and educating the team about Clean Architecture principles and standards.
 
-## Alternativas Consideradas
-Consideramos arquiteturas mais simples, como arquiteturas MVC tradicionais ou arquiteturas baseadas em microserviços. No entanto, optamos pela Clean Architecture devido à sua capacidade de manter a simplicidade enquanto suporta requisitos complexos de negócio e de segurança.
+## Alternatives Considered
+We consider simpler architectures, such as traditional MVC architectures or microservices-based architectures. However, we chose Clean Architecture because of its ability to maintain simplicity while supporting complex business and security requirements.
 
-Este registro de decisão de arquitetura (ADR) serve como uma documentação útil para a equipe de desenvolvimento e stakeholders, fornecendo um entendimento claro das razões por trás da escolha da Clean Architecture e suas implicações para o projeto de API de transferências bancárias.
+This architectural decision record (ADR) serves as useful documentation for the development team and stakeholders, providing a clear understanding of the reasons behind choosing Clean Architecture and its implications for bank transfer API design.
