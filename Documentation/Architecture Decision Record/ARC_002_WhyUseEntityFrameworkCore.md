@@ -1,27 +1,27 @@
-# Título: Utilização do Entity Framework para Acesso ao Banco de Dados
+# Title: Using the Entity Framework for Database Access
 
-## Contexto
-Nosso projeto visa desenvolver uma API para realizar transferências bancárias entre contas de clientes. Esta API é crítica para o negócio, pois precisa garantir a integridade das transações financeiras, segurança dos dados dos clientes e alta disponibilidade.
+## Context
+Our project aims to develop an API to make bank transfers between customer accounts. This API is critical for the business, as it needs to guarantee the integrity of financial transactions, security of customer data and high availability.
 
-## Decisão
-Optamos por utilizar o Entity Framework como ORM (Object-Relational Mapping) para acessar o banco de dados neste projeto, devido às seguintes considerações:
+## Decision
+We chose to use the Entity Framework as ORM (Object-Relational Mapping) to access the database in this project, due to the following considerations:
 
-- **Produtividade e Facilidade de Desenvolvimento:** O Entity Framework simplifica o acesso aos dados através de um modelo de objetos que mapeia diretamente para o esquema do banco de dados. Isso elimina a necessidade de escrever consultas SQL manualmente e permite que os desenvolvedores se concentrem mais na lógica de negócio.
+- **Productivity and Ease of Development:** The Entity Framework simplifies data access through an object model that maps directly to the database schema. This eliminates the need to manually write SQL queries and allows developers to focus more on business logic.
 
-- **Abstração de Banco de Dados:** O Entity Framework abstrai a camada de banco de dados, permitindo que mudanças no esquema do banco sejam refletidas de forma mais fácil e sem alterações significativas no código da aplicação.
+- **Database Abstraction:** The Entity Framework abstracts the database layer, allowing changes to the database schema to be reflected more easily and without significant changes to the application code.
 
-- **ORM Completo:** Além das operações básicas de CRUD, o Entity Framework oferece suporte a recursos avançados como carregamento lazy e eager, controle de transações, e mapeamento complexo de relacionamentos entre entidades.
+- **Full ORM:** In addition to basic CRUD operations, Entity Framework supports advanced features such as lazy and eager loading, transaction control, and complex mapping of relationships between entities.
 
-## Consequências
-Ao escolher o Entity Framework para acesso ao banco de dados, esperamos um desenvolvimento mais ágil e menos propenso a erros relacionados a consultas SQL complexas e manutenção do esquema do banco de dados. No entanto, isso pode introduzir um overhead de desempenho em comparação com abordagens mais diretas, como o Dapper, especialmente em operações que exigem alta performance e controle fino sobre as consultas executadas.
+## Consequences
+By choosing Entity Framework for database access, we expect more agile development that is less prone to errors related to complex SQL queries and database schema maintenance. However, this can introduce performance overhead compared to more direct approaches such as Dapper, especially in operations that require high performance and fine-grained control over the queries executed.
 
-## Alternativas Consideradas
-Consideramos outras alternativas para acesso ao banco de dados, como:
+## Alternatives Considered
+We considered other alternatives for accessing the database, such as:
 
-- **Acesso Direto (SQL Puro):** Escrever consultas SQL diretamente usando bibliotecas de baixo nível para maior controle e desempenho.
+- **Direct Access (Pure SQL):** Write SQL queries directly using low-level libraries for greater control and performance.
 
-- **Dapper:** Um micro ORM que oferece melhor desempenho em cenários onde é necessária alta performance e controle direto sobre as consultas executadas.
+- **Dapper:** A micro ORM that offers better performance in scenarios where high performance and direct control over executed queries are required.
 
-Optamos pelo Entity Framework devido à sua integração com o ecossistema .NET, facilidade de uso e suporte a operações complexas de mapeamento objeto-relacional.
+We chose the Entity Framework due to its integration with the .NET ecosystem, ease of use, and support for complex object-relational mapping operations.
 
-Este registro de decisão de arquitetura (ADR) serve como uma documentação útil para a equipe de desenvolvimento e stakeholders, fornecendo um entendimento claro das razões por trás da escolha do Entity Framework e suas implicações para o projeto de gerenciamento de produtos no sistema de e-commerce.
+This architectural decision record (ADR) serves as useful documentation for the development team and stakeholders, providing a clear understanding of the reasons behind the choice of Entity Framework and its implications for the product management project in the email system. commerce.
