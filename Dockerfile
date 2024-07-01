@@ -1,8 +1,8 @@
 # Estágio base para a aplicação ASP.NET
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 8080
 EXPOSE 8081
+EXPOSE 8082
 
 # Estágio de build para compilar a aplicação
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
@@ -27,23 +27,9 @@ RUN dotnet publish "iTransferencia.csproj" -c Release -o /app/publish /p:UseAppH
 FROM mcr.microsoft.com/mssql/server:2019-latest AS sqlserver
 WORKDIR /app
 
-# Copia o script SQL para dentro do contêiner
-#COPY ["Database/TransferDatabase.InitialScripts.sql", "TransferDatabase.InitialScripts.sql"]
-#COPY ./Database/TransferDatabase.InitialScripts.sql /app/TransferDatabase.InitialScripts.sql
-#COPY Database/TransferDatabase.InitialScripts.sql /docker-entrypoint-initdb.d/
-#COPY ["Database/TransferDatabase.InitialScripts.sql", "/docker-entrypoint-initdb.d/TransferDatabase.InitialScripts.sql"]
-
-# Variáveis de ambiente para configurar SQL Server
-#ENV ACCEPT_EULA=Y
-#ENV SA_PASSWORD=adm123
-
-# Executa o script SQL para criar o banco e as tabelas
-#RUN /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P $SA_PASSWORD -i /docker-entrypoint-initdb.d/TransferDatabase.InitialScripts.sql
-
 # Estágio final para configurar a aplicação
 FROM base AS final
 WORKDIR /app
 
 COPY --from=publish /app/publish .
-#COPY --from=sqlserver /docker-entrypoint-initdb.d/TransferDatabase.InitialScripts.sql /docker-entrypoint-initdb.d/
 ENTRYPOINT ["dotnet", "iTransferencia.dll"]

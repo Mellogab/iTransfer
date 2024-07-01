@@ -1,23 +1,39 @@
 version: '3'
 services:
   mssql-server:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       ACCEPT_EULA: "Y"
-      SA_PASSWORD: "adm#2024"
+      SA_PASSWORD: "numsey#2021"
       MSSQL_PID: Express
     ports:
       - "1433:1433"
     volumes:
       - C:\dados\volumes\sqlserver:/var/opt/mssql/data
-      - .\Database\TransferDatabase.InitialScripts.sql:/docker-entrypoint-initdb.d/TransferDatabase.InitialScripts.sql
+      - ./entrypoint.sh:/usr/local/bin/entrypoint.sh
+    entrypoint: ["/usr/local/bin/entrypoint.sh"] 
+    command: bash -c "chmod +x /entrypoint.sh && /entrypoint.sh"
+    networks:
+      - bridge    
   itransfer-app:
     build: .
     environment:
       DbServer: "mssql-server"
       DbPort: "1433"
       DbUser: "SA"
-      Password: "adm#2024"
+      Password: "numsey#2021"
       Database: "Transfer"
     ports: 
-      - "8090:80"
+      - "8091:8080"
+    networks:
+      - bridge  
+  wiremock:
+    image: rodolpheche/wiremock:2.30.1
+    ports:
+      - "9090:8080"
+    volumes:
+      - ./wiremock/mappings:/home/wiremock/mappings 
+
+networks:
+  bridge:
+    driver: bridge
