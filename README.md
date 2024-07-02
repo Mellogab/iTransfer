@@ -189,7 +189,7 @@ The infrastructure project manages database access and dependency configurations
 
 ## Architecture Decision Records
 
-Key architectural decisions can be queried in the /Architecture Decision Record folder
+Key architectural decisions can be queried in the /Documentation/Architecture Decision Record folder
 
 - **Title**: Use of Clean Architecture for Bank Transfer API.
 - **Title**: Using the Entity Framework to Access the Database.
