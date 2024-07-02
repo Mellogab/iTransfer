@@ -12,12 +12,12 @@ namespace iTransferencia.Core.UseCases.Transfers.ExecuteTransfer
 {
     public class ExecuteTransferUseCase : IExecuteTransferUseCase
     {
-        private IIdempotenceRepository _IIdempotenceRepository { get; set; }
-        private ITransferRepository _ITransferRepository { get; set; }
-        private IClientService _IClientService { get; set; }
-        private IAccountService _IAccountService { get; set; }
-        private IUpdateBalancesUseCase _UpdateBalancesUseCase { get; set; }
-        private INotifyBacenUseCase _INotifyBacenUseCase { get; set; }
+        private IIdempotenceRepository _IIdempotenceRepository;
+        private ITransferRepository _ITransferRepository;
+        private IClientService _IClientService;
+        private IAccountService _IAccountService;
+        private IUpdateBalancesUseCase _UpdateBalancesUseCase;
+        private INotifyBacenUseCase _INotifyBacenUseCase;
         private readonly ILogger<ExecuteTransferUseCase> _Logger;
         private DefaultPresenter<UpdateBalancesOutput> _UpdateBalancesUseCasePresenter;
         private DefaultPresenter<NotifyBacenUseCaseOutput> _NotifyBacenUseCasePresenter;

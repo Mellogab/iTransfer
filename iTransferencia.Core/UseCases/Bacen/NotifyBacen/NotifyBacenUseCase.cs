@@ -7,8 +7,8 @@ namespace iTransferencia.Core.UseCases.Bacen.NotifyBacen
 {
     public class NotifyBacenUseCase : INotifyBacenUseCase
     {
-        private IHttpRequestService _HttpRequestService { get; set; }
-        private BacenAPI BacenAPI { get; set; }
+        private IHttpRequestService _HttpRequestService;
+        private BacenAPI BacenAPI;
         private IMapper _IMapper;
 
 
