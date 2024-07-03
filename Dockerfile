@@ -23,10 +23,6 @@ RUN dotnet build "iTransferencia.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "iTransferencia.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
-# Estágio final para configurar SQL Server e banco de dados
-FROM mcr.microsoft.com/mssql/server:2019-latest AS sqlserver
-WORKDIR /app
-
 # Estágio final para configurar a aplicação
 FROM base AS final
 WORKDIR /app
