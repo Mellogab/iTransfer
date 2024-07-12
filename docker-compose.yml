@@ -10,6 +10,7 @@ services:
       - "1433:1433"
     volumes:
       - C:\dados\volumes\sqlserver:/var/opt/mssql/data
+      - .\Database\TransferDatabase.InitialScripts.sql:/docker-entrypoint-initdb.d/TransferDatabase.InitialScripts.sql
       - ./entrypoint.sh:/usr/local/bin/entrypoint.sh
     entrypoint: ["/usr/local/bin/entrypoint.sh"] 
     command: bash -c "chmod +x /entrypoint.sh && /entrypoint.sh"
@@ -25,6 +26,8 @@ services:
       Database: "Transfer"
     ports: 
       - "8091:8080"
+    depends_on:
+      - mssql-server
     networks:
       - bridge  
   wiremock:
