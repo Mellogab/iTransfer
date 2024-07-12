@@ -7,6 +7,8 @@ using iTransferencia.Core.Services;
 using iTransferencia.Core.UseCases.Accounts.UpdateBalances;
 using iTransferencia.Core.UseCases.Bacen.NotifyBacen;
 using Microsoft.Extensions.Logging;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.Xml;
 
 namespace iTransferencia.Core.UseCases.Transfers.ExecuteTransfer
 {
@@ -108,10 +110,10 @@ namespace iTransferencia.Core.UseCases.Transfers.ExecuteTransfer
                 var idempotenceEntity = new Idempotence(transfer.IdempotenceHash);
 
                 await SaveTransfer(transfer, idempotenceEntity, message.CancellationToken);
-                await UpdateBalances(transfer, message.CancellationToken);
-                await NotifyBacen(transfer, message.CancellationToken);
+                var isBalanceUpdated = await UpdateBalances(transfer, message.CancellationToken);
+                await NotifyBacen(transfer, message.CancellationToken, isBalanceUpdated);
 
-                outputPort.Handle(new ExecuteTransferOutput(true, transfer.Id));
+                outputPort.Handle(new ExecuteTransferOutput(true, transfer.Id, "Transferencia em processamento."));
                 return true;
             }
             catch (ArgumentException validateRulesException)
@@ -161,8 +163,11 @@ namespace iTransferencia.Core.UseCases.Transfers.ExecuteTransfer
             return true;
         }
 
-        public async Task<bool> NotifyBacen(Transfer transfer, CancellationToken cancellationToken)
+        public async Task<bool> NotifyBacen(Transfer transfer, CancellationToken cancellationToken, bool isBalanceUpdated)
         {
+            if (!isBalanceUpdated)
+                return false;
+
             await this._INotifyBacenUseCase
                 .Handle(new NotifyBacenUseCaseInput(transfer.Value, transfer.IdSourceAccount, transfer.IdDestinationAccount), this._NotifyBacenUseCasePresenter)
                 .ConfigureAwait(true);

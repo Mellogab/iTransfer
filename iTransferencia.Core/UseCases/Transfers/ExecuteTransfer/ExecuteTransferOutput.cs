@@ -13,8 +13,9 @@
 
         public ExecuteTransferOutput(
             bool success,
-            Guid transaction_id
-        ) : base(success, null, null)
+            Guid transaction_id,
+            string message = null
+        ) : base(success, message, null)
         {
             this.transaction_id = transaction_id;
         }

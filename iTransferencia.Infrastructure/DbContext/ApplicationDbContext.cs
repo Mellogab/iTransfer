@@ -40,7 +40,7 @@ namespace iTransferencia.Infrastructure.DbContext
             transfer.Property(x => x.ExternalTransactionId)
                 .IsRequired();
 
-            transfer.Ignore(x => x.IdempotenceHash);
+            transfer.Ignore(x => x.IdempotenceHash).HasNoKey();
         }
 
         private static void IdempotenceModelBuilder(ModelBuilder modelBuilder)
